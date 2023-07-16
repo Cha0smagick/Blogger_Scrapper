@@ -35,10 +35,9 @@ for i in range(min(num_entries, len(titles))):
     date = dates[i].text.strip() if i < len(dates) else "Unknown Date"
     link = links[i].find('a')['href']
 
-    print("Title:", title.text)
+    print("\nTitle:", title.text)
     print("Publication Date:", date)
     print("URL:", link)
-    print()
 
     # Make a request to the entry URL
     entry_response = requests.get(link)
@@ -47,9 +46,7 @@ for i in range(min(num_entries, len(titles))):
     # Find and print the content of the entry
     entry_content = entry_soup.find(class_="entry-content")
     if entry_content:
-        print("Content:")
+        print("\nContent:")
         print(entry_content.text.strip())
-        print()
-    else:
-        print("No content found for this entry.")
-        print()
+
+    print("\n" + "=" * 50)  # Double line of dashes as a separator
